@@ -1,3 +1,4 @@
+import datetime
 import pprint
 
 import spotipy
@@ -22,15 +23,18 @@ class SpotifyAnalysis:
             redirect_uri=self.redirect,
             scope=self.scope)
         )
-        results = sp.current_user_top_tracks(limit=2)
-        results = (pl
-                   .from_dicts(results)
-                   .select("items")
-                   .unnest("items")
-                   .select("album")
-                   .unnest("album")
-                   )
-        print(results)
+        results = sp.current_user_recently_played(limit=50,
+                                                  before=int(datetime.datetime(2025, 7, 22).timestamp() * 1000))
+        for result in results["items"]:
+            print(result["track"]["name"], result["played_at"])
+            # results = (pl
+        #            .from_dicts(results)
+        #            .select("items")
+        #            .unnest("items")
+        #            .select("album")
+        #            .unnest("album")
+        #            )
+        # print(results)
 
 
 if __name__ == '__main__':

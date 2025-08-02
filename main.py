@@ -47,7 +47,8 @@ def new_game():
         response_data = {
             'game_id': game_id,
             'message': 'New game started! Start guessing!',
-            'max_guesses': current_game["max_guesses"]
+            'max_guesses': current_game["max_guesses"],
+            "target_album": target_album
         }
         return jsonify(response_data)
 

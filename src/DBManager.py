@@ -29,7 +29,7 @@ class DBManager:
             "n_guesses": 0,
             "max_guesses": self.max_guesses,
             "target_album": target_album,
-            "guesses": []
+            "guesses": [],
         }
         self.games.insert_one(obj)
         return obj

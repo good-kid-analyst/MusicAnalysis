@@ -7,71 +7,78 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="game-container">
-        <div class="header">
-            <h1 class="title">🎵 Music Wordle</h1>
-            <p class="subtitle">Guess the album by comparing characteristics!</p>
-        </div>
+<div class="game-container">
+    <div class="header">
+        <h1 class="title">🎵 Music Wordle</h1>
+        <p class="subtitle">Guess the album by comparing characteristics!</p>
+    </div>
 
-        <div class="game-stats">
-            <div class="stat-item">
-                <div class="stat-value" id="guessCount">0</div>
-                <div class="stat-label">Guesses</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value" id="guessesLeft">6</div>
-                <div class="stat-label">Remaining</div>
-            </div>
+    <div class="game-stats">
+        <div class="stat-item">
+            <div class="stat-value" id="guessCount">0</div>
+            <div class="stat-label">Guesses</div>
         </div>
-
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-box cell-correct"></div>
-                <span>Correct</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-box cell-partial"></div>
-                <span>Partial</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-box cell-year-close"></div>
-                <span>Close (±5 years)</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-box cell-incorrect"></div>
-                <span>Wrong</span>
-            </div>
+        <div class="stat-item">
+            <div class="stat-value" id="guessesLeft">6</div>
+            <div class="stat-label">Remaining</div>
         </div>
+        <div class="stat-item album-cover-container" id="albumCoverContainer">
+            <div class="album-cover-loader" id="albumCoverLoader">
+                <div class="loader-spinner"></div>
+            </div>
+            <div class="stat-label">Album Cover</div>
+            <img id="albumCover" class="album-cover" src="" alt="Album cover" loading="lazy">
+        </div>
+    </div>
 
-        <div class="search-container">
-            <input
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-box cell-correct"></div>
+            <span>Correct</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-box cell-partial"></div>
+            <span>Partial</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-box cell-year-close"></div>
+            <span>Close (±5 years)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-box cell-incorrect"></div>
+            <span>Wrong</span>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input
                 type="text"
                 id="searchInput"
                 class="search-input"
                 placeholder="Search for an album..."
                 autocomplete="off"
-            >
-            <div id="searchSuggestions" class="search-suggestions"></div>
-        </div>
-
-        <div class="hint-text">
-            Type to search for albums, then click to make your guess
-        </div>
-
-        <div class="guesses-header">
-            <div>Album</div>
-            <div>Artist</div>
-            <div>Year</div>
-            <div>Decade</div>
-            <div>Genre</div>
-            <div>Tracks</div>
-        </div>
-
-        <div class="guesses-container" id="guessesContainer">
-        </div>
-
-        <div id="statusMessage"></div>
+        >
+        <div id="searchSuggestions" class="search-suggestions"></div>
     </div>
-    <script src="js/script.js"></script>
+
+    <div class="hint-text">
+        Type to search for albums, then click to make your guess
+    </div>
+
+    <div class="guesses-header">
+        <div>Album</div>
+        <div>Artist</div>
+        <div>Year</div>
+        <div>Decade</div>
+        <div>Genre</div>
+        <div>Tracks</div>
+    </div>
+
+    <div class="guesses-container" id="guessesContainer">
+    </div>
+
+    <div id="statusMessage"></div>
+</div>
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -92,7 +92,7 @@ class SpotifyManager:
         query = random.choice(search_queries)
         offset = random.randint(0, 500)
 
-        results = self.sp.search(q=query, type='album', limit=50, offset=offset, market='US')
+        results = self.sp.search(q=query, type='album', limit=50, market='US')
 
         if results['albums']['items']:
             album = random.choice(results['albums']['items'])
@@ -105,7 +105,6 @@ class SpotifyManager:
             if not genres and album_details['artists']:
                 artist_info = self.sp.artist(album_details['artists'][0]['id'])
                 genres = artist_info.get('genres', [])
-
             return {
                 'id': album['id'],
                 'name': album['name'],
@@ -114,9 +113,9 @@ class SpotifyManager:
                 'year': album.get('release_date', '')[:4] if album.get('release_date') else '',
                 'genres': genres[:3],  # Limit to top 3 genres
                 'genre': genres[0] if genres else 'Various',
-                'image_url': album['images'][0]['url'] if album['images'] else None,
+                'image_url': album['images'][-1]['url'] if album['images'] else None,
                 'total_tracks': album.get('total_tracks', 0),
-                'popularity': album.get('popularity', 0)
+                'popularity': album.get('popularity', 0),
             }
 
     def search_albums(self, query, limit=10):

@@ -10,43 +10,62 @@
     <div class="game-container">
         <div class="header">
             <h1 class="title">🎵 Music Wordle</h1>
-            <p class="subtitle">Guess the album in 6 tries!</p>
+            <p class="subtitle">Guess the album by comparing characteristics!</p>
         </div>
 
-        <div class="game-info" id="gameInfo">
-            <div class="info-item">
-                <span class="info-label">Artist:</span>
-                <span id="artistName">Loading...</span>
+        <div class="game-stats">
+            <div class="stat-item">
+                <div class="stat-value" id="guessCount">0</div>
+                <div class="stat-label">Guesses</div>
             </div>
-            <div class="info-item">
-                <span class="info-label">Release Year:</span>
-                <span id="releaseYear">Loading...</span>
+            <div class="stat-item">
+                <div class="stat-value" id="guessesLeft">6</div>
+                <div class="stat-label">Remaining</div>
             </div>
-            <div class="info-item">
-                <span class="info-label">Genre:</span>
-                <span id="genre">Loading...</span>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box cell-correct"></div>
+                <span>Correct</span>
             </div>
-            <div class="info-item">
-                <span class="info-label">Guesses Remaining:</span>
-                <span id="guessesLeft">6</span>
+            <div class="legend-item">
+                <div class="legend-box cell-partial"></div>
+                <span>Partial</span>
             </div>
+            <div class="legend-item">
+                <div class="legend-box cell-year-close"></div>
+                <span>Close (±5 years)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box cell-incorrect"></div>
+                <span>Wrong</span>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search for an album..."
+                autocomplete="off"
+            >
+            <div id="searchSuggestions" class="search-suggestions"></div>
         </div>
 
         <div class="hint-text">
-            Enter your guess for the album name below
+            Type to search for albums, then click to make your guess
         </div>
 
-        <input 
-            type="text" 
-            id="guessInput" 
-            class="guess-input" 
-            placeholder="Enter album name..."
-            maxlength="100"
-        >
-        
-        <button id="submitGuess" class="guess-button">
-            Submit Guess
-        </button>
+        <div class="guesses-header">
+            <div>Album</div>
+            <div>Artist</div>
+            <div>Year</div>
+            <div>Decade</div>
+            <div>Genre</div>
+            <div>Tracks</div>
+        </div>
 
         <div class="guesses-container" id="guessesContainer">
         </div>

@@ -69,7 +69,7 @@ def search_albums_endpoint():
         if len(query) < 2:
             return jsonify({'albums': []}), 200
 
-        albums = s.search_albums(query, limit=10)
+        albums = s.search_albums(query, limit=5)
         return jsonify({'albums': albums})
 
     except Exception as e:

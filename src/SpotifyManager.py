@@ -90,7 +90,7 @@ class SpotifyManager:
         ]
 
         query = random.choice(search_queries)
-        offset = random.randint(0, 500)
+        offset = random.randint(0, 50)
 
         results = self.sp.search(q=query, type='album', limit=50, market='US')
 
